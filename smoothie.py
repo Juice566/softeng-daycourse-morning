@@ -15,14 +15,21 @@ def smoothie(ingredients: list[str], base: str = "water", ice: bool = True) -> s
     base_str = base.strip().lower()
     if base_str == "":
         base_str = "water"
+        #Leaving base blank inputs the default value water 
 
     if not ingredients:
         return f"{'Icy' if ice else 'Just'} {base_str.title()}!"
+    #if no ingredients are entered then it produces Icy water if there is ice, else it is just water
 
     if not all(isinstance(i, str) for i in ingredients):
         return "I don't know how to make that smoothie!"
+    #I do not know how to get to this 
 
     unique_ingredients = sorted(set(ingredient.strip().lower() for ingredient in ingredients))
+    #im assuming it sorts the ingredient in alphabetical order and also forces lower case lettering 
 
     smoothie = f"{'Icy ' if ice else ''}{base_str.title()} smoothie with " + ", ".join(unique_ingredients)
+    #putting it all together
     return smoothie
+
+print(smoothie([" "]," ", False ))
